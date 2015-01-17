@@ -12,10 +12,15 @@ django-unixdatetimefield
     :target: https://pypi.python.org/pypi/django-unixdatetimefield/
     :alt: Downloads
 
-Provides a UnixDateTimeField to represent date and time stored as
-Unix time (http://en.wikipedia.org/wiki/Unix_time). It's based on the
-implementation of the standard Django DateTimeField, making UnixDateTimeField
-100% compatible with all options it supports.
+Provides a UnixDateTimeField for your Django models.
+
+I have found this especially useful when integrating Django into legacy
+databases, where the typical DateTime column type is rather stored as a Unix
+timestamp (http://en.wikipedia.org/wiki/Unix_time).
+
+UnixDateTimeField is based on the implementation of the standard Django
+DateTimeField, making it 100% compatible with all features and options it
+supports.
 
 Usage
 =====
@@ -42,10 +47,12 @@ Database::
     sqlite> select created_at from mymodel;
     1426967129
 
+Enjoy!
+
 Installation
 ============
 
-Install it with pip (or easy_install)::
+Install with pip (or easy_install)::
 
 	pip install django-unixdatetimefield
 
