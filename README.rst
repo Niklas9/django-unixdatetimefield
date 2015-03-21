@@ -6,7 +6,7 @@ Provides a UnixDateTimeField to your Django models.
 Installation
 ============
 
-Install it with pip (or easy_install):
+Install it with pip (or easy_install)::
 	pip install django-unixdatetimefield
 
 Usage
@@ -14,7 +14,7 @@ Usage
 
 First you'll need to attach a UnixDateTimeField to your model. This acts as a
 the equivalence of a Django PositiveIntegerField on the database level but
-provides a Django DateTimeField at the ORM abstraction layer.
+provides a Django DateTimeField at the ORM abstraction layer. Example::
 
 	from django_unixdatetimefield import UnixDateTimeField
 
