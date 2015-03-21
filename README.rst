@@ -2,9 +2,9 @@ django-unixdatetimefield
 ------------------------
 
 Provides a UnixDateTimeField to represent date and time stored as
-Unix time, http://en.wikipedia.org/wiki/Unix_time, at the database level.
-
-I have found it useful quite often when working with legacy systems.
+Unix time (http://en.wikipedia.org/wiki/Unix_time). It's based on the
+implementation of the standard Django DateTimeField, making UnixDateTimeField
+100% compatible with all options it supports.
 
 Usage
 =====
