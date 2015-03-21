@@ -1,7 +1,36 @@
 django-unixdatetimefield
 ------------------------
 
-Provides a UnixDateTimeField to your Django models.
+Provides a UnixDateTimeField to represent date and time stored as
+Unix time, http://en.wikipedia.org/wiki/Unix_time, at the database level.
+
+I have found it useful quite often when working with legacy systems.
+
+Usage
+=====
+
+First you'll need to attach a UnixDateTimeField to your model. This acts as a
+the equivalence of a Django PositiveIntegerField at the database level but
+provides a Django DateTimeField at the ORM abstraction layer.
+
+Example model::
+
+	from django_unixdatetimefield import UnixDateTimeField
+
+	class MyModel(models.Model):
+		created_at = UnixDateTimeField()
+
+Python::
+
+    >>> m = MyModel()
+    >>> m.save()
+    >>> m.created_at
+    datetime.datetime(2015, 3, 21, 19, 38, 32, 209148, tzinfo=<UTC>)
+
+Database::
+
+    sqlite> select created_at from mymodel;
+    1426966712
 
 Installation
 ============
@@ -9,22 +38,6 @@ Installation
 Install it with pip (or easy_install)::
 
 	pip install django-unixdatetimefield
-
-Usage
-=====
-
-First you'll need to attach a UnixDateTimeField to your model. This acts as a
-the equivalence of a Django PositiveIntegerField on the database level but
-provides a Django DateTimeField at the ORM abstraction layer. Example::
-
-	from django_unixdatetimefield import UnixDateTimeField
-
-	class MyModel(models.Model):
-		created_at = UnixDateTimeField()
-
-Check out the source for more configuration values.
-
-Enjoy!
 
 License
 =======
@@ -36,7 +49,7 @@ Contributing
 
 This project accepts contributions via GitHub pull requests.
 
-  * follow Google's Python style guide
-    https://google-styleguide.googlecode.com/svn/trunk/pyguide.html 
-  * make commits of logical units, messages should include what changed and why
-    and be written in past tense
+* follow Google's Python style guide
+  https://google-styleguide.googlecode.com/svn/trunk/pyguide.html 
+* make commits of logical units, messages should include what changed and why
+  and be written in past tense
