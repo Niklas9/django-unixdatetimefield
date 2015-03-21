@@ -7,6 +7,7 @@ Installation
 ============
 
 Install it with pip (or easy_install)::
+
 	pip install django-unixdatetimefield
 
 Usage
