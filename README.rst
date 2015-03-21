@@ -20,17 +20,16 @@ Example model::
 	class MyModel(models.Model):
 		created_at = UnixDateTimeField()
 
-Python::
+Python ORM query::
 
     >>> m = MyModel()
+    >>> m.created_at = datetime.datetime(2015, 2, 21, 19, 38, 32, 209148)
     >>> m.save()
-    >>> m.created_at
-    datetime.datetime(2015, 3, 21, 19, 38, 32, 209148, tzinfo=<UTC>)
 
 Database::
 
     sqlite> select created_at from mymodel;
-    1426966712
+    1426967129
 
 Installation
 ============
