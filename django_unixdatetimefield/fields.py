@@ -25,6 +25,7 @@ class UnixDateTimeField(models.DateTimeField):
         return datetime.datetime.fromtimestamp(float(val))
 
     def get_db_prep_value(self, val, *args, **kwargs):
+        if val is None:  return None
         return int(time.mktime(val.timetuple()))
 
     def value_to_string(self, obj):
