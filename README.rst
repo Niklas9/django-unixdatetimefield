@@ -4,8 +4,13 @@ django-unixdatetimefield
 .. image:: https://travis-ci.org/Niklas9/django-unixdatetimefield.svg?branch=master
     :target: https://travis-ci.org/Niklas9/django-unixdatetimefield
 
-.. image:: https://coveralls.io/repos/Niklas9/django-unixdatetimefield/badge.svg
-    :target: https://coveralls.io/r/Niklas9/django-unixdatetimefield
+.. image:: https://pypip.in/version/django-unixdatetimefield/badge.svg
+    :target: https://pypi.python.org/pypi/django-unixdatetimefield/
+    :alt: Latest Version
+
+.. image:: https://pypip.in/download/django-unixdatetimefield/badge.svg
+    :target: https://pypi.python.org/pypi/django-unixdatetimefield/
+    :alt: Downloads
 
 Provides a UnixDateTimeField to represent date and time stored as
 Unix time (http://en.wikipedia.org/wiki/Unix_time). It's based on the
