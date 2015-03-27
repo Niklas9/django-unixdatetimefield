@@ -10,6 +10,7 @@ class UnixDateTimeFieldTestCase(test.TestCase):
     def test_default_field(self):
         d = datetime.datetime(2015, 2, 21, 19, 38, 32, 209148)
         m = tm.DefaultField.objects.create(created_at=d)
+        self.assertTrue(isinstance(m.created_at, datetime.datetime))
         self.assertEqual(m.created_at, d)
 
     def test_null_field(self):
