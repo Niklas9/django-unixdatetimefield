@@ -48,6 +48,5 @@ if __name__ == '__main__':
     parser = optparse.OptionParser()
     parser.add_option('--verbosity', dest='verbosity', action='store',
                       default=1, type=int)
-    parser.add_options(django_nose.NoseTestSuiteRunner.options)
     (options, args) = parser.parse_args()
     runtests(*args, **options.__dict__)
