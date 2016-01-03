@@ -4,11 +4,11 @@ django-unixdatetimefield
 .. image:: https://travis-ci.org/Niklas9/django-unixdatetimefield.svg?branch=master
     :target: https://travis-ci.org/Niklas9/django-unixdatetimefield
 
-.. image:: https://pypip.in/version/django-unixdatetimefield/badge.svg
+.. image:: https://img.shields.io/pypi/v/django-unixdatetimefield.svg?style=flat
     :target: https://pypi.python.org/pypi/django-unixdatetimefield/
     :alt: Latest Version
 
-.. image:: https://pypip.in/download/django-unixdatetimefield/badge.svg
+.. image:: https://img.shields.io/pypi/dm/django-unixdatetimefield.svg?style=flat
     :target: https://pypi.python.org/pypi/django-unixdatetimefield/
     :alt: Downloads
 
