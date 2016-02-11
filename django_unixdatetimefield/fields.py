@@ -11,7 +11,9 @@ class UnixDateTimeField(models.DateTimeField):
     # * should we take care of transforming between time zones in any way here ?
     # * get default datetime format from settings ?
     DEFAULT_DATETIME_FMT = '%Y-%m-%d %H:%M:%S'
-    __metaclass__ = models.SubfieldBase
+    # TODO(niklas9):
+    # * metaclass below just for Django < 1.9, fix a if stmt for it?
+    #__metaclass__ = models.SubfieldBase
     description = "Unix timestamp integer to datetime object"
 
     def get_internal_type(self):
@@ -31,3 +33,6 @@ class UnixDateTimeField(models.DateTimeField):
     def value_to_string(self, obj):
         val = self._get_val_from_obj(obj)
         return self.to_python(val).strftime(self.DEFAULT_DATETIME_FMT)
+
+    def from_db_value(self, val, expression, connection, context):
+        return self.to_python(val)
