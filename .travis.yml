@@ -2,7 +2,9 @@ language: python
 python:
     - "2.7"
     - "3.4"
-    - "3.5"
+# TODO(niklas9):
+# * make Python 3.5 work with the build matrix in travis, it isn't compatible
+#   with Django 1.7, 1.6, 1.5
 env:
     - DJANGO=1.9.2
     - DJANGO=1.8.9
