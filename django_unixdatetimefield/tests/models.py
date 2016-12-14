@@ -9,6 +9,9 @@ import django_unixdatetimefield
 class DefaultField(models.Model):
     created_at = django_unixdatetimefield.UnixDateTimeField()
 
+class BlankField(models.Model):
+    created_at = django_unixdatetimefield.UnixDateTimeField(null=True, blank=True)
+
 class NullField(models.Model):
     created_at = django_unixdatetimefield.UnixDateTimeField(null=True)
 

@@ -22,6 +22,14 @@ class UnixDateTimeFieldTestCase(test.TestCase):
         m = tm.NullDefaultField.objects.create()
         self.assertGreater(m.created_at, d)
 
+    def test_blank_field(self):
+        # NOTE(niklas9):
+        # * blank values for Django field types such as DateTimeField or
+        #   ForeignKey will be stored as NULL in the db, hence not asserting
+        #   against empty string '' but rather Python's None-type below
+        m = tm.BlankField.objects.create()
+        self.assertIsNone(m.created_at)
+
     def test_autoset_field(self):
         m = tm.AutosetField.objects.create()
         self.assertIsNotNone(m.created_at)
