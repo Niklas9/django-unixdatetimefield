@@ -25,7 +25,7 @@ SECRET_KEY = 'nswl-$k8v_(pl3dzoqz7+e0n$nj)lb)np#@+47lmfn@xzr)l7e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['local-dev']
 
 
 # Application definition
