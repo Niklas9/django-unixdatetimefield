@@ -15,12 +15,17 @@ class UnixDateTimeFieldTestCase(test.TestCase):
 
     def test_null_field(self):
         m = tm.NullField.objects.create()
-        self.assertEqual(m.created_at, None)
+        self.assertIsNone(m.created_at)
+
+    def test_null_default_field(self):
+        d = datetime.datetime(2015, 8, 23, 15, 38, 32, 209198)
+        m = tm.NullDefaultField.objects.create()
+        self.assertGreater(m.created_at, d)
 
     def test_autoset_field(self):
         m = tm.AutosetField.objects.create()
-        self.assertNotEqual(m.created_at, None)
-        self.assertNotEqual(m.updated_at, None)
+        self.assertIsNotNone(m.created_at)
+        self.assertIsNotNone(m.updated_at)
         self.assertTrue(isinstance(m.created_at, datetime.datetime))
         self.assertTrue(isinstance(m.updated_at, datetime.datetime))
         m.save()
