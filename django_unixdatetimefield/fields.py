@@ -25,7 +25,7 @@ class UnixDateTimeField(models.DateTimeField):
             return val
         if isinstance(val, datetime.date):
             return datetime.datetime(val.year, val.month, val.day)
-        elif isinstance(val, unicode) or isinstance(val, str):
+        elif self._is_string(val):
             # TODO(niklas9):
             # * not addressing time zone support as todo above for now
             if self.TZ_CONST in val:
@@ -33,6 +33,12 @@ class UnixDateTimeField(models.DateTimeField):
             return datetime.datetime.strptime(val, self.DEFAULT_DATETIME_FMT)
         else:
             return datetime.datetime.fromtimestamp(float(val))
+
+    def _is_string(value, val):
+        try:
+            return isinstance(val, unicode)
+        except NameError:
+            return isinstance(val, str)
 
     def get_db_prep_value(self, val, *args, **kwargs):
         if val is None:
