@@ -8,10 +8,6 @@ django-unixdatetimefield
     :target: https://pypi.python.org/pypi/django-unixdatetimefield/
     :alt: Latest Version
 
-.. image:: https://img.shields.io/pypi/dm/django-unixdatetimefield.svg?style=flat
-    :target: https://pypi.python.org/pypi/django-unixdatetimefield/
-    :alt: Downloads
-
 Provides a UnixDateTimeField for your Django models.
 
 I have found this especially useful when integrating Django into legacy
