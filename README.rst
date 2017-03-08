@@ -63,6 +63,6 @@ Contributing
 This project accepts contributions via GitHub pull requests.
 
 * follow Google's Python style guide
-  https://google-styleguide.googlecode.com/svn/trunk/pyguide.html 
+  https://google.github.io/styleguide/pyguide.html
 * make commits of logical units, messages should include what changed and why
   and be written in past tense
