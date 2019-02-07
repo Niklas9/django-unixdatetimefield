@@ -4,7 +4,6 @@ python:
     - "3.4"
     - "3.5"
     - "3.6"
-    - "3.7"
 env:
     - DJANGO="django>=2.1,<2.2"
     - DJANGO="django>=2.0,<2.1"
@@ -21,6 +20,10 @@ script:
 
 
 matrix:
+    include:
+        - python: "3.7"
+          dist: xenial
+          sudo: true
     exclude:
         # https://docs.djangoproject.com/en/dev/releases/1.11/#python-compatibility
         # Django 1.11 requires Python 2.7, 3.4, or 3.5.
