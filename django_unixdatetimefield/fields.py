@@ -1,7 +1,7 @@
-
 import datetime
 import time
 
+import django
 import django.db.models as models
 
 
@@ -50,5 +50,11 @@ class UnixDateTimeField(models.DateTimeField):
         val = self._get_val_from_obj(obj)
         return self.to_python(val).strftime(self.DEFAULT_DATETIME_FMT)
 
-    def from_db_value(self, val, expression, connection, context):
-        return self.to_python(val)
+    # Django 2.0 updates the signature of from_db_value.
+    # https://docs.djangoproject.com/en/2.0/releases/2.0/#context-argument-of-field-from-db-value-and-expression-convert-value
+    if django.VERSION < (2,):
+        def from_db_value(self, val, expression, connection, context):
+            return self.to_python(val)
+    else:
+        def from_db_value(self, val, expression, connection):
+            return self.to_python(val)
