@@ -2,17 +2,43 @@ language: python
 python:
     - "2.7"
     - "3.4"
-# TODO(niklas9):
-# * make Python 3.5 work with the build matrix in travis, it isn't compatible
-#   with Django 1.7
+    - "3.5"
+    - "3.6"
 env:
-    - DJANGO=1.10.4
-    - DJANGO=1.9.12
-    - DJANGO=1.8.17
-    - DJANGO=1.7.11
+    - DJANGO="django>=2.1,<2.2"
+    - DJANGO="django>=2.0,<2.1"
+    - DJANGO="django>=1.10,<1.11"
+    - DJANGO="django>=1.9,<1.10"
+    - DJANGO="django>=1.8,<1.9"
+    - DJANGO="django>=1.7,<1.8"
 install:
-    - pip install -q Django==$DJANGO
-    - pip install -q -e .
-    - pip install -r requirements.txt
+    - travis_retry pip install $DJANGO
+    - travis_retry pip install -q -e .
+    - travis_retry pip install -r requirements.txt
 script:
     - python runtests.py
+
+
+matrix:
+    include:
+        - python: "3.7"
+          dist: xenial
+          sudo: true
+    exclude:
+        # https://docs.djangoproject.com/en/dev/releases/1.11/#python-compatibility
+        # Django 1.11 requires Python 2.7, 3.4, or 3.5.
+        # The Django 1.11.x series is the last to support Python 2.
+        # The next major release, Django 2.0, will only support Python 3.5+
+        - python: "2.7"
+          env: DJANGO="django>=2.0,<2.1"
+        - python: "2.7"
+          env: DJANGO="django>=2.1,<2.2"
+        - python: "3.4"
+          env: DJANGO="django>=2.1,<2.2"
+        # Django 1.7 isn't compatible with python 3.5 and higher
+        - python: "3.5"
+          env: DJANGO="django>=1.7,<1.8"
+        - python: "3.6"
+          env: DJANGO="django>=1.7,<1.8"
+        - python: "3.7"
+          env: DJANGO="django>=1.7,<1.8"
