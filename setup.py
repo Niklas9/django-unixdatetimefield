@@ -4,7 +4,7 @@ import setuptools
 
 setuptools.setup(
     name='django-unixdatetimefield',
-    version='0.1.6',
+    version='1.0.0',
     author='Niklas Andersson',
     author_email='nandersson900@gmail.com',
     description='UnixDateTimeField in Django',
