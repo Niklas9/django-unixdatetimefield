@@ -1,17 +1,9 @@
 django-unixdatetimefield
-------------------------
+========================
 
-.. image:: https://travis-ci.org/Niklas9/django-unixdatetimefield.svg?branch=master
-    :target: https://travis-ci.org/Niklas9/django-unixdatetimefield
-
-.. image:: https://img.shields.io/pypi/v/django-unixdatetimefield.svg?style=flat
-    :target: https://pypi.python.org/pypi/django-unixdatetimefield/
-    :alt: Latest Version
-
-.. image:: https://pepy.tech/badge/django-unixdatetimefield/week
-    :target: https://pepy.tech/project/django-unixdatetimefield
-    :alt: Downloads
-
+[![Build Status](https://travis-ci.org/Niklas9/django-unixdatetimefield.svg?branch=master)](https://travis-ci.org/Niklas9/django-unixdatetimefield)
+[![Latest Version](https://img.shields.io/pypi/v/django-unixdatetimefield.svg?style=flat) ](https://pypi.python.org/pypi/django-unixdatetimefield/)
+[![Downloads](https://pepy.tech/badge/django-unixdatetimefield/week)](https://pepy.tech/project/django-unixdatetimefield)
 
 Provides a UnixDateTimeField for your Django models.
 
@@ -24,7 +16,7 @@ DateTimeField, making it 100% compatible with all features and options it
 supports.
 
 Usage
-=====
+-----
 
 First you'll need to attach a UnixDateTimeField to your model. This acts as a
 the equivalence of a Django PositiveIntegerField at the database level but
@@ -51,19 +43,19 @@ Database::
 Enjoy!
 
 Installation
-============
+------------
 
 Install with pip (or easy_install)::
 
 	pip install django-unixdatetimefield
 
 License
-=======
+-------
 
 BSD, just as the main Django project. See LICENSE file in root of this repo.
 
 Contributing
-============
+------------
 
 This project accepts contributions via GitHub pull requests.
 
