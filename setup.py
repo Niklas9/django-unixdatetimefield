@@ -1,13 +1,17 @@
 
 import setuptools
 
+with open('README.md', 'r') as f:
+    long_description = f.read()
 
 setuptools.setup(
     name='django-unixdatetimefield',
-    version='1.0.1',
+    version='1.0.2',
     author='Niklas Andersson',
     author_email='nandersson900@gmail.com',
     description='UnixDateTimeField in Django',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     url='https://github.com/Niklas9/django-unixdatetimefield',
     zip_safe=False,
     install_requires=[
