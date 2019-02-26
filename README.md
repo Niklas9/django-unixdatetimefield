@@ -22,20 +22,20 @@ First you'll need to attach a UnixDateTimeField to your model. This acts as a
 the equivalence of a Django PositiveIntegerField at the database level but
 provides a Django DateTimeField at the ORM abstraction layer.
 
-Example model::
+Example model:
 
 	from django_unixdatetimefield import UnixDateTimeField
 
 	class MyModel(models.Model):
 		created_at = UnixDateTimeField()
 
-Python ORM query::
+Python ORM query:
 
     >>> m = MyModel()
     >>> m.created_at = datetime.datetime(2015, 2, 21, 19, 38, 32, 209148)
     >>> m.save()
 
-Database::
+Database:
 
     sqlite> select created_at from mymodel;
     1426967129
