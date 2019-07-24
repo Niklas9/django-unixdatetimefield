@@ -1,8 +1,9 @@
 import datetime
-import pytz
 import time
 
+from django.conf import settings
 import django.db.models as models
+from django.utils import timezone
 
 
 class UnixDateTimeField(models.DateTimeField):
@@ -33,7 +34,15 @@ class UnixDateTimeField(models.DateTimeField):
             return datetime.datetime.strptime(val, self.DEFAULT_DATETIME_FMT)
         else:
             # Unix timestamp is always UTC by definition
-            return datetime.datetime.fromtimestamp(float(val), tz=pytz.timezone("UTC"))
+            datetime_value = datetime.datetime.fromtimestamp(float(val))
+            if settings.USE_TZ:
+                try:
+                    import pytz
+                    return timezone.make_aware(datetime_value, timezone=pytz.timezone("UTC"))
+                except ImportError:
+                    return timezone.make_aware(datetime_value)
+            else: 
+                return datetime_value
 
     def _is_string(value, val):
         try:
