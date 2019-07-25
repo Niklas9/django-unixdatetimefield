@@ -4,6 +4,7 @@ import time
 from django.conf import settings
 import django.db.models as models
 from django.utils import timezone
+from django.utils.dateparse import parse_datetime
 
 
 class UnixDateTimeField(models.DateTimeField):
@@ -12,7 +13,6 @@ class UnixDateTimeField(models.DateTimeField):
     # * should we take care of transforming between time zones in any way here ?
     # * get default datetime format from settings ?
     DEFAULT_DATETIME_FMT = '%Y-%m-%d %H:%M:%S'
-    TZ_CONST = '+'
     # TODO(niklas9):
     # * metaclass below just for Django < 1.9, fix a if stmt for it?
     #__metaclass__ = models.SubfieldBase
@@ -27,15 +27,11 @@ class UnixDateTimeField(models.DateTimeField):
         if isinstance(val, datetime.date):
             return datetime.datetime(val.year, val.month, val.day)
         elif self._is_string(val):
-            # TODO(niklas9):
-            # * not addressing time zone support as todo above for now
-            if self.TZ_CONST in val:
-                val = val.split(self.TZ_CONST)[0]
-            return datetime.datetime.strptime(val, self.DEFAULT_DATETIME_FMT)
+            return parse_datetime(val)
         else:
-            # Unix timestamp is always UTC by definition
             datetime_value = datetime.datetime.fromtimestamp(float(val))
             if settings.USE_TZ:
+                # Unix timestamp is always UTC by definition
                 try:
                     import pytz
                     return timezone.make_aware(datetime_value, timezone=pytz.timezone("UTC"))
