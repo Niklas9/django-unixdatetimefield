@@ -8,5 +8,3 @@ from django_unixdatetimefield import UnixDateTimeField
 class MyModel(models.Model):
         title = models.CharField(max_length=100)
         created_at = UnixDateTimeField()
-
-    

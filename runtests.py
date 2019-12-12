@@ -28,7 +28,7 @@ if not conf.settings.configured:
 
 # NOTE(niklas9):
 # * need to have import django_nose after settings has been configured.. I don't
-#   like this.. but as it seems to be required by django_nose.. 
+#   like this.. but as it seems to be required by django_nose..
 import django_nose
 
 def runtests(*test_args, **kwargs):
