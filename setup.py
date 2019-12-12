@@ -6,7 +6,7 @@ with open('README.md', 'r') as f:
 
 setuptools.setup(
     name='django-unixdatetimefield',
-    version='1.0.3',
+    version='1.1.0',
     author='Niklas Andersson',
     author_email='nandersson900@gmail.com',
     description='UnixDateTimeField in Django',
