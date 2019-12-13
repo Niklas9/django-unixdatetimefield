@@ -3,7 +3,7 @@ MAINTAINER Niklas Andersson <nandersson900@gmail.com>
 
 RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get install -y python3-pip
-RUN pip3 install django==2.2
+RUN pip3 install django==3.0
 
 ENV PYTHONPATH $PYTHONPATH:/code
 ENV app_port 8080

@@ -29,11 +29,13 @@ class UnixDateTimeField(models.DateTimeField):
             else:
                 return datetime_value
 
-    def _is_string(value, val):
+    def _is_string(self, val):
         try:
-            return isinstance(val, unicode)  # Python 2.7 compatibility support
-        except NameError:
-            return isinstance(val, str)
+            if isinstance(val, unicode):  # Python 2.7 compatibility support
+                return True
+        except:
+            pass
+        return isinstance(val, str)
 
     def get_db_prep_value(self, val, *args, **kwargs):
         if val is None:

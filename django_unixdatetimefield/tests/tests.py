@@ -93,7 +93,7 @@ class UnixDateTimeFieldTestCase(test.TestCase):
 
     def test_internal_field_methods_is_string_pos(self):
         u = f.UnixDateTimeField()
-        s1 = str('2019-08-23 18:00:00')
+        s1 = '2019-08-23 18:00:00'
         self.assertTrue(u._is_string(s1))
 
     def test_internal_field_methods_is_string_neg(self):
