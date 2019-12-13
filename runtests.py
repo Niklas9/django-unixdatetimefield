@@ -24,6 +24,7 @@ if not conf.settings.configured:
         MIDDLEWARE_CLASSES = tuple(),
         ROOT_URLCONF='',
         DEBUG=False,
+        USE_TZ=False,
     )
 
 # NOTE(niklas9):
